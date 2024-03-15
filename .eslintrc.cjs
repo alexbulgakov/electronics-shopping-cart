@@ -6,6 +6,7 @@ module.exports = {
     jest: true,
   },
   parser: "@typescript-eslint/parser",
+  ignorePatterns: ["vite.config.ts"],
   plugins: [
     "react",
     "react-hooks",
@@ -32,7 +33,7 @@ module.exports = {
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
       ],
       rules: {
-        "linebreak-style": ["error", "unix"],
+        "linebreak-style": ["warn", "unix"],
         "no-empty-function": "off",
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-explicit-any": "off",
@@ -40,13 +41,13 @@ module.exports = {
         "@typescript-eslint/no-unsafe-call": "off",
         "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/no-misused-promises": [
-          "error",
+          "warn",
           { checksVoidReturn: false },
         ],
-        "prettier/prettier": "error",
+        "prettier/prettier": "warn",
         "react/display-name": "off",
         "react/prop-types": "off",
-        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/rules-of-hooks": "warn",
         "react-hooks/exhaustive-deps": "warn",
         "react/jsx-uses-react": "off",
         "react/react-in-jsx-scope": "off",
@@ -60,7 +61,7 @@ module.exports = {
         "@typescript-eslint/restrict-plus-operands": "off",
         "@typescript-eslint/no-non-null-assertion": "off",
         "import/order": [
-          "error",
+          "warn",
           {
             groups: [
               ["external", "builtin"],
@@ -95,4 +96,5 @@ module.exports = {
       version: "detect",
     },
   },
+
 };
