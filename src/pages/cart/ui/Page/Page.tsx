@@ -5,21 +5,24 @@ import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Flex, Heading, Spi
 import { CartProductList } from '../CartProductList/CartProductList.tsx'
 import { CartSummary } from '../CartSummary/CartSummary.tsx'
 
+import { useAppDispatch, useAppSelector } from '@/app/hooks.ts'
 import { CartType, getRandomCartId } from '@/entities/cart'
+import { recievedState } from '@/entities/cart/model/slice.ts'
 import { api } from '@/shared/api'
 
 export const Page = () => {
-  const [cart, setCart] = useState<CartType>()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const cartId = getRandomCartId()
+  const cart = useAppSelector(state => state.cart)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     setLoading(true)
     api
       .getItems<CartType>(`carts/${cartId}`)
       .then(cart => {
-        setCart(cart)
+        dispatch(recievedState(cart))
         setLoading(false)
       })
       .catch(error => {

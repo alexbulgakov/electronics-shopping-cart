@@ -5,7 +5,7 @@ export function ChangeQuantity({ value }: { value: number }) {
   return (
     <Flex ml="5" alignItems="center" gap="2">
       <IconButton size="sm" aria-label="Select quantity" icon={<MinusIcon />} />
-      {/* <Text>{props.value}</Text> */}
+      <Text>{value}</Text>
       <IconButton size="sm" aria-label="Select quantity" icon={<AddIcon />} />
     </Flex>
   )
