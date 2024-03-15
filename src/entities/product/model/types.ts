@@ -7,3 +7,8 @@ export type Product = {
   discountedPrice: number
   thumbnail: string
 }
+
+export type ProductDescription = {
+  description: string
+  id: number
+}

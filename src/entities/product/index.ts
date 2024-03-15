@@ -1,1 +1,2 @@
-export { type Product } from './model/types'
+export { type Product, type ProductDescription } from './model/types'
+export { CartProductMeta } from './ui/CartProductMeta'
