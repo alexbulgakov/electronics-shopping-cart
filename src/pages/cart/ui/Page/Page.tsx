@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Flex, Heading, Spinner, Stack } from '@chakra-ui/react'
+import plural from 'plural-ru'
 
 import { CartProductList } from '../CartProductList/CartProductList.tsx'
 import { CartSummary } from '../CartSummary/CartSummary.tsx'
@@ -61,7 +62,10 @@ export const Page = () => {
         <Stack direction={{ base: 'column', lg: 'row' }} align={{ lg: 'flex-start' }} spacing={{ base: '8', md: '16' }}>
           <Stack spacing={{ base: '8', md: '10' }} flex="3">
             <Heading fontSize="2xl" fontWeight="extrabold">
-              Ваша корзина {`(${cart?.products.length} товаров)`}
+              Ваша корзина
+              {cart?.products.length
+                ? ` (${cart?.products.length} ${plural(cart?.products.length, 'товар', 'товара', 'товаров')})`
+                : ' пуста'}
             </Heading>
             <CartProductList products={cart.products} />
           </Stack>
