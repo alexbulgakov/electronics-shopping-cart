@@ -67,7 +67,7 @@ export const Page = () => {
           </Stack>
 
           <Flex direction="column" align="center" flex="1">
-            <CartSummary total={cart.total} discountedTotal={cart.discountedTotal} />
+            <CartSummary total={cart.total} />
           </Flex>
         </Stack>
       ) : (
